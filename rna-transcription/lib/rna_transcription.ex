@@ -9,15 +9,15 @@ defmodule RnaTranscription do
   """
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    String.split(to_string(dna), "", trim: true)
-    |>  Enum.map(fn char ->
-        case char do
-          "A" -> ?U
-          "C" -> ?G
-          "T" -> ?A
-          "G" -> ?C
-          _ -> ?\s
-        end
-      end)
+    dna
+    |> Enum.map(fn char ->
+      case char do
+        ?A -> ?U
+        ?C -> ?G
+        ?T -> ?A
+        ?G -> ?C
+        _ -> ?\s
+      end
+    end)
   end
 end
